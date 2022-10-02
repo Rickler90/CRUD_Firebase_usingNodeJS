@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 
-//create
+//create POST / http://localhost:8080/api/create
 app2.post('/api/create', (req,res) => {
     var studentID = req.body.studentID;
 
@@ -42,7 +42,7 @@ app2.post('/api/create', (req,res) => {
 })
 
 
-//get
+//get GET / http://localhost:8080/api/get
 app2.get('/api/get', (req, res) => {
     try {
         get(ref(db, 'students'))
@@ -120,7 +120,7 @@ app2.post('/api/studentID', (req, res) => {
     }
 })
 
-//update
+//update PUT / http://localhost:8080/api/update
 app2.put('/api/update', (req, res) => {
     var studentID = req.body.studentID
     var lastName = req.body.lastName
@@ -156,7 +156,7 @@ app2.put('/api/update', (req, res) => {
     }
 })
 
-//delete
+//delete DELETE / http://localhost:8080/api/delete
 app2.delete('/api/delete', (req, res) => {
     var studentID = req.body.studentID
 
